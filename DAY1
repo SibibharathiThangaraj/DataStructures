@@ -1,0 +1,28 @@
+package data1;
+import java.util.Arrays;
+import java.util.Scanner;
+public class RevDiff {
+	public static void main(String[]args)
+	{
+		Scanner sc=new Scanner(System.in);
+        System.out.println("Enter the size of the array");
+        int size=sc.nextInt();
+        System.out.println("Enter the array");
+        int a[]=new int[size];
+        for(int i=0;i<size;i++)
+        {
+        	a[i]=sc.nextInt();
+        }
+       int len=a.length;
+        int temp,right=a.length-1,left=0;
+        for(int i=len;i>=left;i--)
+        {
+        	a[i]=a[i-1];
+        }
+        a[left]=a[right];
+        len++;
+        System.out.println(Arrays.toString(a));
+        
+	}
+
+}
