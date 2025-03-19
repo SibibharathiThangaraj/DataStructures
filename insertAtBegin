@@ -1,0 +1,16 @@
+package DAY2;
+
+public class insertAtBegin {
+	 public static void main(String[] args) {
+	    	Linked_ex l=new Linked_ex();
+	        l.insertAtBegin(26);
+	        l.insertAtBegin(11);
+	        l.insertAtBegin(55);
+	        l.insertAtBegin(100);
+	        l.insertAtPos(3,44);
+	        l.viewPos(2);
+	        l.deleteAtPos(3);
+	        l.delAtbegin();
+	        l.display();
+	        }
+}
