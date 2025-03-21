@@ -1,0 +1,125 @@
+package DAY2;
+
+public class DoublyLinkedList {
+	    Node head;
+	    Node tail;
+	    class Node{
+	        int data;
+	        Node next;
+	        Node prev;
+
+	        Node(int val){
+	            data=val;
+	            next=null;
+	            prev=null;
+	        }
+
+	    }
+	    public void DoublyLinked_ex(){
+	        head=null;
+	    }
+	    public void insertAtBegin(int val){
+	        Node newNode=new Node(val);
+	        if (head==null) {
+	            head=newNode;
+	        }
+	        else {
+	            Node temp=head;
+	            newNode.next=temp;
+	            head=newNode;
+	        }
+	    }
+	    public void display(){
+	        Node temp=head;
+	        while (temp!=null) {
+	            System.out.print(temp.data+" ");
+	            temp=temp.next;
+	        }
+	    }
+	    public void displayUsingPrev(){
+	        Node temp=tail;
+	        while (temp!=null) {
+	            System.out.println(temp.data+" ");
+	            temp=temp.prev;
+	        }
+	    }
+	    public void insertAtAnypos(int pos,int val){
+	        Node newNode=new Node(val);
+	        Node temp=head;
+	        for(int i=0;i<pos-1;i++){
+	            temp=temp.next;
+	        }
+	        newNode.next=temp.next;
+	        temp.next=newNode;
+	    }
+	    public void viewposition(int mypos){
+	        Node temp=head;
+	        System.out.println("Head Value:"+temp.data);
+	        for(int i=0;i<mypos-1;i++){
+	            temp=temp.next;
+	            System.out.println("Current position value:"+temp.data);
+	        }
+	    }
+	    public void delAtPosition(int delpos){
+	        Node temp=head;
+	        Node dtemp=null;
+	        for(int i=0;i<delpos;i++){
+	            dtemp=temp;
+	            temp=temp.next;
+	        }
+	        dtemp.next=temp.next;
+	    }
+	    public void delAtBegin(){
+	        head=head.next;
+	    }
+	    public void DoubleInsertBegin(int val){
+	        Node newNode=new Node(val);
+	        if(head==null){
+	            head=newNode;
+	            tail=newNode;
+	        }
+	        else{
+	            Node temp=head;
+	            newNode.next=temp;
+	            head=newNode;
+	            temp.prev=newNode;
+	        }
+	    } 
+	    public void DoubleinsertAtAnypos(int pos,int val){
+	        Node newNode=new Node(val);
+	        Node temp=head;
+	        Node temp1=head;
+	        for(int i=0;i<pos-1;i++){
+	            temp=temp.next;
+	            temp1=temp1.next;
+	        }
+	        newNode.next=temp.next;
+	        newNode=
+	        temp.next=newNode;
+	        newNode.prev=temp;
+	    }
+	    public void DoubledelAtPosition(int delpos){
+	        Node temp=head;
+	        Node dtemp=null;
+	        for(int i=0;i<delpos;i++){
+	            dtemp=temp;
+	            temp=temp.next;
+	        }
+	        dtemp.next=temp.next;
+	    }
+	    public static void main(String[] args) {
+	        DoublyLinkedList l=new DoublyLinkedList();
+	        l.DoubleInsertBegin(11);
+	        l.DoubleInsertBegin(22);
+	        l.DoubleInsertBegin(33);
+	        l.DoubleInsertBegin(44);
+	        l.DoubleInsertBegin(55);
+	        //l.delAtBegin();
+	        l.display();
+	        System.out.println();
+	        l.displayUsingPrev();
+	        l.DoubleinsertAtAnypos(4, 3333);
+	        l.display();
+	        }
+	}
+
