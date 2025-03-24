@@ -1,0 +1,69 @@
+package DAY2;
+
+public class Circular_linked {
+	Node last;
+	
+	class Node{
+		int data;
+		Node next=null;
+		
+		Node(int val)
+		{
+			data=val;
+			next=null;
+		}
+	}
+	Circular_linked()
+	{
+		last=null;
+	}
+	public void insetAtBegin(int val)
+	{
+		Node newNode=new Node(val);
+		if(last==null) 
+		{
+			last=newNode;
+			last.next=last;
+		}
+		else
+		{
+			newNode.next=last;
+			last.next=newNode;
+		}
+	}
+	public void insertAtEnd(int val)
+	{
+		Node newNode=new Node(val);
+		if(last==null)
+		{
+			last=newNode;
+			last.next=last;
+		}
+		else
+		{
+			Node temp=last.next;
+			last.next=newNode;
+			newNode.next=temp;
+			last=newNode;
+		}
+	}
+	public void deleteAtBegin()
+	{
+		Node temp=last.next;
+		last.next=last.next.next;
+		temp.next=null;
+	}
+	public void display()
+	{
+		Node temp=last.next;
+		while(temp!=last)
+		{
+			System.out.println(temp.data+" ");
+			temp=temp.next;
+			
+		}
+		System.out.println(temp.data);
+		
+	}
+
+}
