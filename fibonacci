@@ -1,0 +1,40 @@
+package DAY2;
+
+import java.util.Scanner;
+
+public class FibonacciRecursion {
+    // Recursive function to get Fibonacci number at a given position
+    public static int getFibonacciValue(int n) {
+        if (n <= 1) {
+            return n;
+        }
+        return getFibonacciValue(n - 1) + getFibonacciValue(n - 2);
+    }
+
+    // Recursive function to print Fibonacci series up to 'n' terms
+    public static void printFibonacciSeries(int n, int a, int b, int count) {
+        if (count == n) {
+            return;
+        }
+        System.out.print(a + " ");
+        printFibonacciSeries(n, b, a + b, count + 1);
+    }
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Get input for Fibonacci series
+        System.out.print("Enter the number of terms for the Fibonacci series: ");
+        int terms = scanner.nextInt();
+        System.out.print("Fibonacci Series: ");
+        printFibonacciSeries(terms, 0, 1, 0);
+        System.out.println();
+
+        // Get input for Fibonacci value at a specific position
+        System.out.print("Enter the position to get the Fibonacci number: ");
+        int position = scanner.nextInt();
+        System.out.println("Fibonacci number at position " + position + " is: " + getFibonacciValue(position));
+
+        scanner.close();
+    }
+}
